@@ -15,30 +15,23 @@ if($_GET['type'] == 'buy'){
 if($url) {
 
 
-// Get the client request URL
+// Request URL
 $clientUrl = $_SERVER['REQUEST_URI'];
 
-// Initialize cURL session
+// cURL it up
 $ch = curl_init();
-
-// Set cURL options
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-// Execute the cURL request
 $response = curl_exec($ch);
-
-// Get the response headers
 $responseHeaders = curl_getinfo($ch);
-// Close the cURL session
 curl_close($ch);
 
-// Forward the response headers to the client
+// Proxy the response headers back to the calling browser/app
 foreach ($responseHeaders as $headerName => $headerValue) {
     header("$headerName: $headerValue");
 }
 
-// Forward the response body to the client
+// Response body is returned directly
 echo $response;
 }
 
