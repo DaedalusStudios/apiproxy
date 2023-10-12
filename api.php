@@ -1,8 +1,11 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+
+
+
+// This part is SPECIFIC TO THE API that you're referencing.  I'm using Get variables and forcing the key for BOOKSRUN.COM
 $key = "2cwijp5r9qfhzcf03ol6";
 $isbn = $_GET['isbn'];
-
 
 if($_GET['type'] == 'buy'){
     $url = "https://booksrun.com/api/v3/price/buy/$isbn?key=$key"; //buy
