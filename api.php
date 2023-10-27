@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 
 
 // This part is SPECIFIC TO THE API that you're referencing.  I'm using Get variables and forcing the key for BOOKSRUN.COM
-$key = "2cwijp5r9qfhzcf03ol6";
+$key = "-";
 $isbn = $_GET['isbn'];
 
 if($_GET['type'] == 'buy'){
